@@ -1,0 +1,35 @@
+number=520000#надо найти вывести число и его макс делитель, при условии что сумма делителей числа поиндром
+d=0
+
+while d<5:
+    g=['0']
+    a=[]
+    polindrom=[]
+    sum=0
+    max = 0
+    delit=2
+    while delit ** 2 < number:#крутая находилка делителей
+        if number % delit == 0:
+            sum+=delit
+            if delit != number // delit:
+                if number//delit>max:
+                    max=number//delit
+                sum+=number//delit
+        delit += 1
+    #for x in range(2,c//2+1): плохая находилка делителей
+    #    if c%x==0:
+     #       sum+=x
+      #      if x>max:
+       #         max=x
+
+    polindrom=list(str("".join(map(str,str(sum)))))
+
+
+    if polindrom!=g*len(polindrom):
+        for i in range(len(polindrom)-1,-1,-1):
+            a.append(polindrom[i])
+        if polindrom==a:
+            print(number,max)
+            d+=1
+            print(d)
+    number+=1
